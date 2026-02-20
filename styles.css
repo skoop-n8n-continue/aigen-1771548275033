@@ -1,0 +1,223 @@
+:root {
+    --primary-green: #1a472a;
+    --accent-gold: #c5a059;
+    --bg-cream: #f8f5f2;
+    --text-dark: #2d2d2d;
+    --text-light: #ffffff;
+    --sale-red: #c0392b;
+    --border-color: #e0e0e0;
+    
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Lato', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-cream);
+    color: var(--text-dark);
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden; /* Prevent scrolling for signage */
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 1vw;
+}
+
+/* Header */
+.main-header {
+    text-align: center;
+    padding: 1vh 0 2vh;
+    flex-shrink: 0;
+}
+
+.logo-text h1 {
+    font-family: var(--font-display);
+    font-size: 3vw;
+    font-weight: 700;
+    color: var(--primary-green);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.2vh;
+    text-transform: uppercase;
+}
+
+.location {
+    font-family: var(--font-display);
+    font-size: 1.5vw;
+    font-style: italic;
+    color: var(--accent-gold);
+}
+
+.header-line {
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-green), transparent);
+    margin: 1vh auto 0;
+}
+
+/* Promo Banner */
+.promo-banner {
+    flex-shrink: 0;
+    background-color: var(--primary-green);
+    color: var(--text-light);
+    padding: 1.5vh 2vw;
+    border-radius: 8px;
+    margin-bottom: 2vh;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 8vh;
+}
+
+.promo-content h2 {
+    font-family: var(--font-display);
+    font-size: 1.8vw;
+    margin-bottom: 0.5vh;
+    color: var(--accent-gold);
+}
+
+.promo-content p {
+    font-size: 1.2vw;
+}
+
+.promo-price {
+    font-weight: bold;
+    color: var(--accent-gold);
+    margin-left: 1vw;
+}
+
+/* Main Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 Columns */
+    gap: 2vw;
+    flex-grow: 1;
+    overflow-y: auto; /* Allow scroll if content overflows, but try to fit */
+    padding-bottom: 1vh;
+}
+
+/* Category Sections */
+.category-section {
+    background: #fff;
+    padding: 1.5vw;
+    border-radius: 8px;
+    border-top: 4px solid var(--primary-green);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.category-title {
+    font-family: var(--font-display);
+    font-size: 1.8vw;
+    color: var(--primary-green);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1vh;
+    margin-bottom: 1.5vh;
+    text-align: center;
+}
+
+/* Product Items */
+.product-list {
+    list-style: none;
+    flex-grow: 1;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.8vh 0;
+    border-bottom: 1px dotted var(--border-color);
+}
+
+.product-item:last-child {
+    border-bottom: none;
+}
+
+.item-info {
+    flex: 1;
+    padding-right: 1vw;
+}
+
+.item-name {
+    font-size: 1.1vw;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.item-note {
+    font-size: 0.8vw;
+    color: #777;
+    font-style: italic;
+    display: block;
+    margin-top: 0.2vh;
+}
+
+.item-pricing {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.price-regular {
+    font-size: 1.1vw;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.price-regular.has-sale {
+    text-decoration: line-through;
+    color: #999;
+    font-size: 0.9vw;
+    font-weight: 400;
+}
+
+.price-sale {
+    font-size: 1.2vw;
+    font-weight: 700;
+    color: var(--sale-red);
+}
+
+/* Footer */
+.main-footer {
+    text-align: center;
+    font-size: 0.8vw;
+    color: #888;
+    padding-top: 1vh;
+    flex-shrink: 0;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Responsive adjustments */
+@media (max-aspect-ratio: 1/1) {
+    /* Portrait Signage */
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    .logo-text h1 { font-size: 5vw; }
+    .item-name { font-size: 2.5vw; }
+    .price-regular, .price-sale { font-size: 2.5vw; }
+}
+
+.grid-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+body {
+    line-height: 1.4;
+}
